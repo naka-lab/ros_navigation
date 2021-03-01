@@ -68,18 +68,17 @@ roslaunch turtlebot3_bringup turtlebot3_rpicamera.launch
 roslaunch turtlebot3_bringup turtlebot3_robot.launch
 ```
 
-- リモートPC
-  - 画像が圧縮されて来るので，それを復元してimage_rawという名前でpublishする
-  ```
-  rosrun image_transport republish compressed in:=/raspicam_node/image raw  out:=/image_raw
-  ```
-  
+- リモートPC  
   - 認識させたい物体画像の保存
     - `rqt`を起動
     - `Plunins`→`Visualization`→`Image View`を選択
     - 認識させたい物体をカメラに移し保存
     - pintaなどのアプリで編集し，背景を削除
 
+  - 画像が圧縮されて来るので，それを復元してimage_rawという名前でpublishする
+  ```
+  rosrun image_transport republish compressed in:=/raspicam_node/image raw  out:=/image_raw
+  ```
   - 物体認識ノード
   ```
   rosrun find_object_2d find_object_2d image:=/image_raw
