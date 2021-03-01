@@ -9,7 +9,6 @@ sudo apt-get install ros-noetic-turtlebot3-msgs
 sudo apt-get install ros-noetic-turtlebot3
 sudo apt-get install ros-noetic-dwa-local-planner
 sudo apt-get install ros-noetic-gmapping ros-noetic-map-server ros-noetic-find-object-2d
-sudo apt-get install pinta
 cd ~/catkin_ws/src
 git clone https://github.com/naka-lab/ros_navigation.git
 ```
@@ -69,12 +68,6 @@ roslaunch turtlebot3_bringup turtlebot3_robot.launch
 ```
 
 - リモートPC  
-  - 認識させたい物体画像の保存
-    - `rqt`を起動
-    - `Plunins`→`Visualization`→`Image View`を選択
-    - 認識させたい物体をカメラに移し保存
-    - pintaなどのアプリで編集し，背景を削除
-
   - 画像が圧縮されて来るので，それを復元してimage_rawという名前でpublishする
   ```
   rosrun image_transport republish compressed in:=/raspicam_node/image raw  out:=/image_raw
@@ -83,6 +76,5 @@ roslaunch turtlebot3_bringup turtlebot3_robot.launch
   ```
   rosrun find_object_2d find_object_2d image:=/image_raw
   ```  
-  起動したら認識したい物体の画像を読み込ませる
-  
+  - `Edit`→`Add object from scene...`で認識したい物体を保存
   - [サンプル](https://github.com/naka-lab/ros_navigation/blob/main/scripts/object_tracking.py)を起動する  
