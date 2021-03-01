@@ -12,7 +12,22 @@ cd ~/catkin_ws/src
 git clone https://github.com/naka-lab/ros_navigation.git
 ```
 
+- ロボット内部PCのIPの確認（nano ~/catkin_ws/set_ip.sh）
+```
+export ROS_MASTER_URI=http://（リモートPCのIP）:11311
+export ROS_HOSTNAME=（ロボット内部PCのIP）
+```
+
+- リモートPCのIPの確認（nano ~/catkin_ws/set_ip.sh）
+```
+export ROS_MASTER_URI=http://（リモートPCのIP）:11311
+export ROS_HOSTNAME=（リモートPCのIP）
+```
+
+
 ## 実行
+- リモートPCで`roscore`を実行
+
 ### 地図生成（SLAM）
 - ロボット内部PC（内部PCのデフォルトのユーザー名はpi, パスワードはturtlebot）
 ```
