@@ -14,11 +14,10 @@ git clone https://github.com/naka-lab/ros_navigation.git
 
 ## 実行
 ### 地図生成（SLAM）
-- ロボット内部PC
+- ロボット内部PC（内部PCのデフォルトのユーザー名はpi, パスワードはturtlebot）
 ```
 roslaunch turtlebot3_bringup turtlebot3_robot.launch
 ```
-  - （内部PCのデフォルトのユーザー名はpi, パスワードはturtlebot）
 
 - リモートPC
   - `roslaunch turtlebot3_slam turtlebot3_slam.launch`
