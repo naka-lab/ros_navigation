@@ -3,7 +3,7 @@
 ## 準備
 - リモートPC（各自のPC）で実行
 ```
-sudo -E apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+sudo -E apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --keyserver-option http-proxy=http://proxy.uec.ac.jp:8080 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 sudo apt-get install ros-noetic-turtlebot3-msgs
 sudo apt-get install ros-noetic-turtlebot3
