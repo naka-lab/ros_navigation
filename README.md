@@ -18,6 +18,7 @@ git clone https://github.com/naka-lab/ros_navigation.git
 ```
 roslaunch turtlebot3_bringup turtlebot3_robot.launch
 ```
+  - （内部PCのデフォルトのユーザー名はpi, パスワードはturtlebot）
 
 - リモートPC
   - `roslaunch turtlebot3_slam turtlebot3_slam.launch`
