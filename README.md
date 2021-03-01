@@ -7,6 +7,7 @@ sudo -E apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --keyserver-opti
 echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 sudo apt-get install ros-noetic-turtlebot3-msgs
 sudo apt-get install ros-noetic-turtlebot3
+sudo apt-get install ros-noetic-dwa-local-planner
 sudo apt-get install ros-noetic-gmapping ros-noetic-map-server ros-noetic-find-object-2d
 cd ~/catkin_ws/src
 git clone https://github.com/naka-lab/ros_navigation.git
