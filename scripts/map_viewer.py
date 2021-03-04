@@ -9,7 +9,6 @@ import os
 import yaml
 import sys
 
-
 yaml_path = sys.argv[1]
 with open( yaml_path ) as file:
     try:
@@ -52,5 +51,7 @@ cv2.setMouseCallback("map", mouse_event)
 cv2.imshow( "map", img )
 
 
-cv2.waitKey(0)
+while 1:
+    # ctrl+cで終了できるよう一定間隔でwaitkeyを抜ける
+    cv2.waitKey(500)
 cv2.destroyAllWindows()
