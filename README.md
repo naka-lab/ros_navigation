@@ -11,6 +11,7 @@ sudo apt-get install ros-noetic-dwa-local-planner
 sudo apt-get install ros-noetic-gmapping ros-noetic-map-server ros-noetic-find-object-2d
 cd ~/catkin_ws/src
 git clone https://github.com/naka-lab/ros_navigation.git
+source ~/.bashrc
 ```
 
 - ロボット内部PCのIPの確認（nano ~/catkin_ws/set_ip.sh）
