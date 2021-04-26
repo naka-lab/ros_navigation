@@ -19,6 +19,7 @@ source ~/.bashrc
 export ROS_MASTER_URI=http://（リモートPCのIP）:11311
 export ROS_HOSTNAME=（ロボット内部PCのIP）
 ```
+    - ロボット内部PC（raspberry pi）のユーザ名はpi，パスワードはturtlebot
 
 - リモートPCのIPの確認（nano ~/catkin_ws/set_ip.sh）
 ```
