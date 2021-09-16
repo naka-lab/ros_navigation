@@ -31,7 +31,7 @@ def send_navi_goal(x, y, theta ):
 
     client.send_goal(goal)
     client.wait_for_result()
-    result = client.get_result()
+    result = client.get_state()
 
     return result
 

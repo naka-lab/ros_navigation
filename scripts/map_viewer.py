@@ -9,7 +9,6 @@ import os
 import yaml
 import sys
 
-
 yaml_path = sys.argv[1]
 with open( yaml_path ) as file:
     try:
@@ -115,7 +114,5 @@ while 1:
         offset_x = img.shape[1] - window_width
 
     cv2.imshow( "map",  clip_img() )
-
-    
 
 cv2.destroyAllWindows()

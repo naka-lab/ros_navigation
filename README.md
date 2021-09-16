@@ -7,12 +7,30 @@ sudo -E apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --keyserver-opti
 echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 sudo apt-get install ros-noetic-turtlebot3-msgs
 sudo apt-get install ros-noetic-turtlebot3
+sudo apt-get install ros-noetic-dwa-local-planner
 sudo apt-get install ros-noetic-gmapping ros-noetic-map-server ros-noetic-find-object-2d
 cd ~/catkin_ws/src
 git clone https://github.com/naka-lab/ros_navigation.git
+source ~/.bashrc
 ```
 
+- ロボット内部PCのIPの確認（nano ~/catkin_ws/set_ip.sh）
+```
+export ROS_MASTER_URI=http://（リモートPCのIP）:11311
+export ROS_HOSTNAME=（ロボット内部PCのIP）
+```
+    - ロボット内部PC（raspberry pi）のユーザ名はpi，パスワードはturtlebot
+
+- リモートPCのIPの確認（nano ~/catkin_ws/set_ip.sh）
+```
+export ROS_MASTER_URI=http://（リモートPCのIP）:11311
+export ROS_HOSTNAME=（リモートPCのIP）
+```
+
+
 ## 実行
+- リモートPCで`roscore`を実行
+
 ### 地図生成（SLAM）
 - ロボット内部PC（内部PCのデフォルトのユーザー名はpi, パスワードはturtlebot）
 ```
@@ -51,16 +69,14 @@ roslaunch turtlebot3_bringup turtlebot3_rpicamera.launch
 roslaunch turtlebot3_bringup turtlebot3_robot.launch
 ```
 
-- リモートPC
+- リモートPC  
   - 画像が圧縮されて来るので，それを復元してimage_rawという名前でpublishする
   ```
   rosrun image_transport republish compressed in:=/raspicam_node/image raw  out:=/image_raw
   ```
-
   - 物体認識ノード
   ```
   rosrun find_object_2d find_object_2d image:=/image_raw
   ```  
-  起動したら認識したい物体の画像を読み込ませる
-  
+  - `Edit`→`Add object from scene...`で認識したい物体を保存
   - [サンプル](https://github.com/naka-lab/ros_navigation/blob/main/scripts/object_tracking.py)を起動する  
