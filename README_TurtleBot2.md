@@ -129,7 +129,7 @@ git clone https://github.com/naka-lab/ros_navigation.git
 
 - リモートPC：地図を指定して自己位置推定を実行
   ```
-  roslaunch ros_navigation kobuki_navigaiton.launch map_file:=$HOME/map.yaml
+  roslaunch ros_navigation kobuki_navigaton.launch map_file:=$HOME/map.yaml
   ```
 
 - rvizの「2D Pose Estimate」でロボットの現在位置を設定して，「2D Nav Goal」で移動先を指定する
