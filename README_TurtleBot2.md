@@ -1,6 +1,6 @@
 # TurtleBot2 (kobuki) + Raspberry pi3(b+) 
 
-## 準備
+## インストール
 ### Raspberry piのセットアップ
 - raspberry pi 3 b+の場合はubuntu mate 18.04を使用
   - https://releases.ubuntu-mate.org/archived/18.04/arm64/
@@ -84,11 +84,28 @@
   git clone https://github.com/naka-lab/ros_navigation.git
   ```
 
-### リモートPCの準備
+### リモートPCのセットアップ
 ```
 cd ~/catkin_ws
 git clone https://github.com/naka-lab/ros_navigation.git
 ```
+
+
+## 準備
+- ロボット内部PCのIPの確認（nano ~/catkin_ws/set_ip.sh）
+  ```
+  export ROS_MASTER_URI=http://（リモートPCのIP）:11311
+  export ROS_HOSTNAME=（ロボット内部PCのIP）
+  ```
+  - ロボット内部PC（raspberry pi）のユーザ名はpi，パスワードはturtlebot
+
+- リモートPCのIPの確認（nano ~/catkin_ws/set_ip.sh）
+  ```
+  export ROS_MASTER_URI=http://（リモートPCのIP）:11311
+  export ROS_HOSTNAME=（リモートPCのIP）
+  ```
+
+
 
 ## 実行
 - リモートPCで`roscore`を実行
