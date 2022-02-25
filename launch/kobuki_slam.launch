@@ -1,8 +1,4 @@
 <launch>
-
-  <arg name="urdf_file" default="$(find xacro)/xacro '$(find ros_navigation)/urdf_kobuki/kobuki.urdf.xacro'" />
-  <param name="robot_description" command="$(arg urdf_file)" />
-
   <node pkg="ros_navigation" type="kobuki_tf.py" name="kobuki_tf.py" output="screen" />
 
   <node pkg="gmapping" type="slam_gmapping" name="kobuki_slam_gmapping" output="screen">
