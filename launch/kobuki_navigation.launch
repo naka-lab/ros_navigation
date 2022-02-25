@@ -1,0 +1,29 @@
+<launch>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+    <param name="publish_frequency" type="double" value="5.0" />
+  </node>
+
+  <node pkg="ros_navigation" type="kobuki_tf.py" name="kobuki_tf.py" output="screen" />
+
+  <arg name="map_file" default="~/map.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+  </node>
+
+  <include file="$(find ros_navigation)/launch/kobuki_amcl.launch.xml"/>
+
+  <arg name="cmd_vel_topic" default="/mobile_base/commands/velocity" />
+  <arg name="odom_topic" default="odom" />
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find ros_navigation)/param_kobuki/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find ros_navigation)/param_kobuki/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find ros_navigation)/param_kobuki/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find ros_navigation)/param_kobuki/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find ros_navigation)/param_kobuki/dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find ros_navigation)/param_kobuki/move_base_params.yaml" command="load" />
+    <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
+    <remap from="odom" to="$(arg odom_topic)"/>
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ros_navigation)/rviz/kobuki_nav.rviz"/>
+</launch>
+
