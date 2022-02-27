@@ -1,13 +1,13 @@
 DWAPlannerROS:
 
 # Robot Configuration Parameters - Kobuki
-  max_vel_x: 0.5  
+  max_vel_x: 0.3  
   min_vel_x: 0.0 
 
   max_vel_y: 0.0  
   min_vel_y: 0.0  
 
-  max_trans_vel: 0.5 
+  max_trans_vel: 0.3 
   min_trans_vel: 0.1  
   trans_stopped_vel: 0.1
 
@@ -45,3 +45,9 @@ DWAPlannerROS:
   publish_traj_pc : true
   publish_cost_grid_pc: true
   global_frame_id: odom
+
+TrajectoryPlannerROS:
+  max_vel_x: 0.3
+  max_vel_theta: 0.5
+
+  
