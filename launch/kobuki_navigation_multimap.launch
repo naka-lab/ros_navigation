@@ -5,9 +5,15 @@
 
   <node pkg="ros_navigation" type="kobuki_tf.py" name="kobuki_tf" output="screen" />
 
-  <arg name="map_file" default="~/map.yaml"/>
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+  <arg name="map_file_loc" default="~/map.yaml"/>
+  <node name="map_server_loc" pkg="map_server" type="map_server" args="$(arg map_file_loc)">
   </node>
+
+  <arg name="map_file_pp" default="~/map.yaml"/>
+  <node name="map_server_pp" pkg="map_server" type="map_server" args="$(arg map_file_pp)">
+  <remap from="map" to="map_pp"/>
+  </node>
+
 
   <include file="$(find ros_navigation)/launch/kobuki_amcl.launch.xml"/>
 
@@ -22,6 +28,7 @@
     <rosparam file="$(find ros_navigation)/param_kobuki/move_base_params.yaml" command="load" />
     <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
     <remap from="odom" to="$(arg odom_topic)"/>
+    <remap from="map" to="map_pp"/>
   </node>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ros_navigation)/rviz/kobuki_nav.rviz"/>
