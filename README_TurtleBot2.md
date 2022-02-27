@@ -62,10 +62,7 @@
   sudo apt install python-catkin-tools
   cd catkin_ws
   curl -sLf https://raw.githubusercontent.com/gaunthan/Turtlebot2-On-Melodic/master/install_basic.sh | bash
-
-  # ここで必要のなさそうなパッケージ（kobuki_gazebo_plugins，turtlebot_simulator）をcatkin_wsから移動させる
-
-  catkin_make -j1 # メモリが足りなくなるのでスレッドを一つにする
+  catkin_make -j1 # メモリが足りなくなるのでスレッドを一つにしてコンパイル
 
   git clone https://github.com/ros-drivers/linux_peripheral_interfaces.git
   ```
