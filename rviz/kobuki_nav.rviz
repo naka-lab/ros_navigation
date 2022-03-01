@@ -6,12 +6,13 @@ Panels:
       Expanded:
         - /Global Options1
         - /TF1
-        - /TF1/Frames1
         - /TF1/Tree1
         - /Global Map1/Costmap1
         - /Global Map1/Planner1
+        - /Local Map1
         - /Local Map1/Costmap1
         - /Local Map1/Planner1
+        - /PointCloud21
       Splitter Ratio: 0.5
     Tree Height: 787
   - Class: rviz/Selection
@@ -358,7 +359,7 @@ Visualization Manager:
           Radius: 0.029999999329447746
           Shaft Diameter: 0.10000000149011612
           Shaft Length: 0.10000000149011612
-          Topic: /move_base/TrajectoryPlannerROS/local_plan
+          Topic: /move_base/NavfnROS/plan
           Unreliable: false
           Value: true
       Enabled: true
@@ -379,6 +380,36 @@ Visualization Manager:
       Shape: Arrow (Flat)
       Topic: /particlecloud
       Unreliable: false
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: total_cost
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 287.1000061035156
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic: /move_base/DWAPlannerROS/cost_cloud
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
       Value: true
   Enabled: true
   Global Options:
@@ -413,10 +444,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 210.950927734375
+      Scale: 196.1936492919922
       Target Frame: <Fixed Frame>
-      X: 1.165496826171875
-      Y: 0.22785401344299316
+      X: 1.165163516998291
+      Y: 2.631373405456543
     Saved: ~
 Window Geometry:
   Displays:

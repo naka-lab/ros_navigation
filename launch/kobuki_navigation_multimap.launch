@@ -1,8 +1,4 @@
 <launch>
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
-    <param name="publish_frequency" type="double" value="5.0" />
-  </node>
-
   <node pkg="ros_navigation" type="kobuki_tf.py" name="kobuki_tf" output="screen" />
 
   <arg name="map_file_loc" default="~/map.yaml"/>
@@ -20,6 +16,7 @@
   <arg name="cmd_vel_topic" default="/mobile_base/commands/velocity" />
   <arg name="odom_topic" default="odom" />
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
     <rosparam file="$(find ros_navigation)/param_kobuki/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find ros_navigation)/param_kobuki/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find ros_navigation)/param_kobuki/local_costmap_params.yaml" command="load" />
