@@ -83,8 +83,10 @@
 
 ### リモートPCのセットアップ
 ```
-cd ~/catkin_ws
+cd ~/catkin_ws/src
 git clone https://github.com/naka-lab/ros_navigation.git
+
+sudo apt install ros-noetic-dwa-local-plannerner
 ```
 
 
