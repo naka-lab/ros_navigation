@@ -1,7 +1,7 @@
 shutdown_costmaps: false
 controller_frequency: 5.0
 controller_patience: 15.0
-planner_frequency: 2.0
+planner_frequency: 2.0    # 1.0だと動かなくなることが多かった
 planner_patience: 10.0
 oscillation_timeout: 30.0
 oscillation_distance: 0.2
