@@ -65,14 +65,14 @@
     <param name="laser_z_hit"               value="0.95"/>
     <param name="laser_z_short"             value="0.1"/>
     <param name="laser_z_max"               value="0.05"/>
-    <param name="laser_z_rand"              value="0.5"/>
+    <param name="laser_z_rand"              value="0.05"/>
     <param name="laser_sigma_hit"           value="0.2"/>
     <param name="laser_lambda_short"        value="0.1"/>
     <param name="laser_likelihood_max_dist" value="2.0"/>
     <param name="laser_model_type"          value="likelihood_field"/>
 
     <param name="odom_model_type"           value="diff"/>
-    <param name="odom_alpha1"               value="0.8"/>
+    <param name="odom_alpha1"               value="8.0"/>
     <param name="odom_alpha2"               value="0.2"/>
     <param name="odom_alpha3"               value="0.2"/>
     <param name="odom_alpha4"               value="0.2"/>
@@ -94,6 +94,6 @@
   </node>
 
   <!-- VISUALIZE -->
-  <node name="rviz" pkg="rviz" type="rviz" output="log" args="-d $(find stretch_navigation)/rviz/navigation.rviz" if="$(arg rviz)" />
+  <node name="rviz" pkg="rviz" type="rviz" output="log" args="-d $(find ros_navigation)/rviz/stretch_navigation.rviz" if="$(arg rviz)" />
 
 </launch>
