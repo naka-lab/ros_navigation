@@ -1,7 +1,7 @@
 DWAPlannerROS:
   # Robot Configuration Parameters - Kobuki
   max_vel_x: 0.5  
-  min_vel_x: 0.0
+  min_vel_x: 0.0  # 負の値にすると後ろ向きで進むようになる
 
   max_vel_y: 0.0  
   min_vel_y: 0.0  
@@ -27,7 +27,7 @@ DWAPlannerROS:
   vtheta_samples: 30 
 
   # Trajectory Scoring Parameters
-  path_distance_bias: 32.0      
+  path_distance_bias: 32.0      # グローバルパスに従うように大きめに設定
   goal_distance_bias: 1.0      
   occdist_scale: 0.01            
   forward_point_distance: 0.325 

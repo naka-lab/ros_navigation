@@ -22,12 +22,14 @@
       name="laser_filter">
   </node-->
 
+  <!-- hokuyoのLRFを使う場合．stretch_tf.pyの実行も必要． -->
   <!--node name="urg_node" pkg="urg_node" type="urg_node">
     <param name="serial_port" value="/dev/ttyACM6"/>
     <param name="frame_id" value="hokuyo_laer"/>
   </node-->
 
   <!-- MAP SERVER -->
+  <!-- 自己位置推定用とパスプラン用の2つのマップを利用 -->
   <arg name="map_file_loc" default="~/map.yaml"/>
   <node name="map_server_loc" pkg="map_server" type="map_server" args="$(arg map_file_loc)">
   </node>
@@ -47,7 +49,7 @@
     <param name="min_particles"             value="500"/>
     <param name="max_particles"             value="3000"/>
     <param name="kld_err"                   value="0.05"/>
-    <param name="update_min_d"              value="0.1"/>
+    <param name="update_min_d"              value="0.1"/><!-- オドメトリの精度が悪いので頻繁に更新 -->
     <param name="update_min_a"              value="0.1"/>
     <param name="resample_interval"         value="1"/>
     <param name="transform_tolerance"       value="1.0"/>
@@ -72,7 +74,7 @@
     <param name="laser_model_type"          value="likelihood_field"/>
 
     <param name="odom_model_type"           value="diff"/>
-    <param name="odom_alpha1"               value="8.0"/>
+    <param name="odom_alpha1"               value="8.0"/><!-- 回転時のオドメトリの精度が悪いので大きめに設定 -->
     <param name="odom_alpha2"               value="0.2"/>
     <param name="odom_alpha3"               value="0.2"/>
     <param name="odom_alpha4"               value="0.2"/>
