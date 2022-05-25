@@ -42,6 +42,12 @@
   - `roslaunch turtlebot3_slam turtlebot3_slam.launch`
   - `roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch`：起動したらキーボードを動かして地図を作成
   - `rosrun map_server map_saver -f ~/map`：地図を保存
+
+- 地図の編集
+  ```
+  rosrun ros_navigation map_viewer.py ~/map.yaml
+  ```
+    
   
 ### ナビゲーション
 - ロボット内部PC
