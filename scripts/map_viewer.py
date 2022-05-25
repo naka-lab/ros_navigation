@@ -48,7 +48,7 @@ else:
 def clip_img():
     cliped_img = deepcopy(img[offset_y:offset_y+window_height, offset_x:offset_x+window_width])
     cv2.putText(cliped_img, text='q: quit', org=(10, 15), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.5,  color=(255, 0, 0), thickness=2, lineType=cv2.LINE_4)
-    cv2.putText(cliped_img, text='a,w,s,z: scroll', org=(10, 40), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.5,  color=(255, 0, 0), thickness=2, lineType=cv2.LINE_4)
+    cv2.putText(cliped_img, text='i, j, k, m scroll', org=(10, 40), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.5,  color=(255, 0, 0), thickness=2, lineType=cv2.LINE_4)
     return cliped_img
 
 def mouse_event(event, x, y, flags, param):
@@ -92,13 +92,13 @@ while 1:
         break
 
     # マップ移動
-    if key==119: # w
+    if key==105: # i
         offset_y -= scroll
-    elif key==122: # z
+    elif key==109: # m
         offset_y += scroll
-    elif key==115: # s
+    elif key==107: # k
         offset_x += scroll
-    elif key==97: # a
+    elif key==106: # j
         offset_x -= scroll
 
     # 移動量修正
