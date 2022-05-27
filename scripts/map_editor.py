@@ -8,7 +8,11 @@ import math
 import os
 import yaml
 import sys
-from tkinter import filedialog, messagebox
+try:
+    from tkinter import filedialog, messagebox
+except ImportError:
+    import tkFileDialog as filedialog
+    import tkMessageBox as messagebox
 import codecs
 
 yaml_path = sys.argv[1]
