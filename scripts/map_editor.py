@@ -74,6 +74,9 @@ def mouse_event(event, x, y, flags, param):
         p1 = ( (clicked_pos[0]+offset_x)/scale, (clicked_pos[1]+offset_y)/scale )
         p2 = ( (release_pos[0]+offset_x)/scale, (release_pos[1]+offset_y)/scale )
 
+        p1 = ( int(p1[0]), int(p1[1]) )
+        p2 = ( int(p2[0]), int(p2[1]) )
+
         undo_imgs.append( deepcopy(original_img) )
         if len(undo_imgs)>5:
             undo_imgs.pop(0)
@@ -93,12 +96,19 @@ def mouse_event(event, x, y, flags, param):
 
 
 def save():
-    name_yaml = filedialog.asksaveasfilename(filetypes=[("yaml", "*.yaml")], initialdir="~/")
+    global yaml_path
+    dirname = os.path.dirname( os.path.abspath( yaml_path ) )
+    filename = os.path.basename( yaml_path )
+
+
+    name_yaml = filedialog.asksaveasfilename(filetypes=[("yaml", "*.yaml")], initialdir=dirname, initialfile=filename)
     if len(name_yaml)==0:
         return 
 
     name_pgm = name_yaml[:-4]+"pgm"
     print(name_yaml, name_pgm)
+
+    yaml_path = name_yaml
 
     if os.path.exists( name_pgm ) or os.path.exists( name_yaml ):
         ret = messagebox.askquestion('上書き保存', 'ファイルはすでに存在します．上書きしてもいいですか？', icon='warning')
