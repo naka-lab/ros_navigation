@@ -110,11 +110,6 @@ def save():
 
     yaml_path = name_yaml
 
-    if os.path.exists( name_pgm ) or os.path.exists( name_yaml ):
-        ret = messagebox.askquestion('上書き保存', 'ファイルはすでに存在します．上書きしてもいいですか？', icon='warning')
-        if ret=="no":
-            return
-
     new_yaml = deepcopy( map_yaml )
     new_yaml["image"]=name_pgm
     cv2.imwrite( name_pgm, original_img[:,:,0] )
