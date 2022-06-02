@@ -85,7 +85,11 @@ while 1:
 
     # フリーズ対策
     if key==-1:
-        continue
+        if cv2.getWindowProperty("map",cv2.WND_PROP_VISIBLE)==0.0:
+            # ウィンドウが閉じれていたら終了
+            break
+        else:
+            continue
 
     # 終了
     if key==113: # q
