@@ -40,14 +40,24 @@
 
 - リモートPC
   - `roslaunch turtlebot3_slam turtlebot3_slam.launch`
+  
   - `roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch`：起動したらキーボードを動かして地図を作成
-  - `rosrun map_server map_saver -f ~/map`：地図を保存
 
-- 地図の編集
+  - `rosrun map_server map_saver -f ~/map`：地図を保存
+  
+
+### 地図の編集
+- 編集ソフトを起動
   ```
-  rosrun ros_navigation map_viewer.py ~/map.yaml
+  rosrun ros_navigation map_editor.py ~/map.yaml
   ```
-    
+- 画像上をドラッグして線を書いて編集する
+  - 下側のスクロールバー：線の色（Color）と太さ（Size）の変更
+  - `i`, `j`, `k`, `m`キー：地図のスクロール
+  - `z`キー：元に戻す
+  - `s`キー：保存
+  - `q`キー：終了
+- 編集が完了したら`s`キーを押すとファイル保存ダイアログが起動するのでファイル名を入力し保存
   
 ### ナビゲーション
 - ロボット内部PC
@@ -84,6 +94,6 @@
   - 物体認識ノード
       ```
       rosrun find_object_2d find_object_2d image:=/image_raw
-      ```  
+      ```
   - `Edit`→`Add object from scene...`で認識したい物体を保存
   - [サンプル](https://github.com/naka-lab/ros_navigation/blob/main/scripts/object_tracking.py)を起動する  
