@@ -10,14 +10,14 @@ DWAPlannerROS:
   min_vel_trans: 0.1  # 絶対値．この値が大きいと微調整する行動が取れず振動的になる？ 
 
   max_vel_theta: 1.5
-  min_vel_theta: 0.1  # 絶対値
+  min_vel_theta: 0.3  # 絶対値
 
   acc_lim_x: 4.0
   acc_lim_theta: 4.0
   acc_lim_y: 0.0 
 
   # Goal Tolerance Parameters
-  yaw_goal_tolerance: 0.01
+  yaw_goal_tolerance: 0.05
   xy_goal_tolerance: 0.05
 
   # Forward Simulation Parameters
@@ -27,7 +27,7 @@ DWAPlannerROS:
   vtheta_samples: 30 
 
   # Trajectory Scoring Parameters
-  path_distance_bias: 40.0     # グローバルパスに従うように大きめに設定．早く移動するとパスから外れやすくなるので小さめにする．
+  path_distance_bias: 100.0     # グローバルパスに従うように大きめに設定．早く移動するとパスから外れやすくなるので小さめにする．
   goal_distance_bias: 1.0      
   occdist_scale: 0.01            
   forward_point_distance: 0.325 
