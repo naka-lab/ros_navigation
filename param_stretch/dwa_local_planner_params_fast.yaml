@@ -32,7 +32,7 @@ DWAPlannerROS:
   occdist_scale: 0.01            
   forward_point_distance: 0.325 
   stop_time_buffer: 0.2         
-  scaling_speed: 0.25           
+  scaling_speed: 0.4           # 2022.09.15 0.25
   max_scaling_factor: 0.2       
 
   # Oscillation Prevention Parameters
