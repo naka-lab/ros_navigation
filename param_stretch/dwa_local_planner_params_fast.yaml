@@ -7,7 +7,7 @@ DWAPlannerROS:
   min_vel_y: 0.0  
 
   max_vel_trans: 0.6
-  min_vel_trans: 0.1  # 絶対値．この値が大きいと微調整する行動が取れず振動的になる？ 
+  min_vel_trans: 0.05  # 絶対値．この値が大きいと微調整する行動が取れず振動的になる？ df=0.1
 
   max_vel_theta: 1.5
   min_vel_theta: 0.3  # 絶対値
@@ -21,19 +21,19 @@ DWAPlannerROS:
   xy_goal_tolerance: 0.05
 
   # Forward Simulation Parameters
-  sim_time: 2.0       
+  sim_time: 2.0     
   vx_samples: 20       
   vy_samples: 0       
   vtheta_samples: 30 
 
   # Trajectory Scoring Parameters
-  path_distance_bias: 100.0     # グローバルパスに従うように大きめに設定．早く移動するとパスから外れやすくなるので小さめにする．
+  path_distance_bias: 80.0     # グローバルパスに従うように大きめに設定．早く移動するとパスから外れやすくなるので小さめにする． 
   goal_distance_bias: 1.0      
   occdist_scale: 0.01            
   forward_point_distance: 0.325 
   stop_time_buffer: 0.2         
-  scaling_speed: 0.4           # 2022.09.15 0.25
-  max_scaling_factor: 0.2       
+  scaling_speed: 0.4           # 2022.09.15 ; df=0.25
+  max_scaling_factor: 0.4      # 2022.09.17 ; df=0.2       
 
   # Oscillation Prevention Parameters
   oscillation_reset_dist: 0.05  
