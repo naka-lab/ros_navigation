@@ -1,6 +1,6 @@
 DWAPlannerROS:
   # Robot Configuration Parameters - Kobuki
-  max_vel_x: 0.5  
+  max_vel_x: 0.63  
   min_vel_x: 0.0  # 負の値にすると後ろ向きで進むようになる
 
   max_vel_y: 0.0  
